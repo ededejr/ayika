@@ -1,9 +1,14 @@
 package ayika
 
-import "log"
+import (
+	"fmt"
 
-func throwOnError(err error, message string) {
-	if err != nil {
-		log.Fatal(message, err)
+	"github.com/fatih/color"
+)
+
+func reportError(err error, message string) {
+	canShowErrors := Bool("AYIKA_VERBOSE")
+	if err != nil && canShowErrors {
+		fmt.Printf("%s: %s\n", color.HiRedString("Error"), message)
 	}
 }
