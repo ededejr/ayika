@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/ededejr/ayika"
-	"github.com/fatih/color"
 )
 
 func TestNum(t *testing.T) {
@@ -46,11 +45,5 @@ func TestNum(t *testing.T) {
 		}},
 	}
 
-	testWriter.Println("Num()")
-	for _, test := range cases {
-		testWriter.Printf("  %s", test.description)
-		observed, err := ayika.Num(test.in)
-		test.expected(t, observed, err)
-		testWriter.Printf(color.HiGreenString(" ✔\n"))
-	}
+	runTestCasesWithErrors(t, "Num()", ayika.Num, cases)
 }
