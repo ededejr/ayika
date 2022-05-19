@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// Load environment variables using one of the provided methods.
 var Load = &load{}
 
 // Get the value of an environment variable.
